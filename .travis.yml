@@ -1,0 +1,44 @@
+sudo: required
+language: c
+services: docker
+
+branches:
+  only:
+  - /^latest\//
+
+env:
+  global:
+    - DOCKERHUB_IMG=yhnw/openwrt-sdk
+
+before_install:
+  - docker version
+  - sudo useradd -u 1000 openwrt
+  - mkdir $PWD/pkgs
+  - sudo chown openwrt $PWD/pkgs
+  - git config --global user.name "Travis CI"
+  - git config --global user.email "travis@example.com"
+
+script:
+  - git fetch origin '+refs/heads/master:refs/remotes/origin/master' '+refs/heads/latest/*:refs/remotes/origin/latest/*'
+  - git checkout -b master origin/master
+  - |
+    for branch in $(git branch -a | grep 'remotes/origin/latest/*' | perl -pe 's|\s*remotes/||'); do
+        echo "Merging '$branch' to master..."
+        git merge --no-edit $branch
+    done
+  - git log --graph --abbrev-commit --date=relative
+
+before_deploy:
+  - git branch
+  - git config --global "url.git@github.com:.pushinsteadof" "https://github.com/"
+  - mkdir -p $HOME/.ssh
+  - chmod 700 $HOME/.ssh
+  - openssl aes-256-cbc -K $encrypted_7fd34a514aa3_key -iv $encrypted_7fd34a514aa3_iv -in id_ecdsa.enc -out $HOME/.ssh/id_ecdsa -d
+  - chmod 600 $HOME/.ssh/id_ecdsa
+
+deploy:
+  - provider: script
+    script: git push -f origin master:gh-pages
+    skip_cleanup: true
+    on:
+      branch: latest/*
