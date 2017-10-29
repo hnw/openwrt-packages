@@ -9,12 +9,9 @@ branches:
 env:
   global:
     - DOCKERHUB_IMG=yhnw/openwrt-sdk
+    - OPENWRT_GID=1000
 
 before_install:
-  - docker version
-  - sudo useradd -u 1000 openwrt
-  - mkdir $PWD/pkgs
-  - sudo chown openwrt $PWD/pkgs
   - git config --global user.name "Travis CI"
   - git config --global user.email "travis@example.com"
 
@@ -27,14 +24,21 @@ script:
         git merge --no-edit $branch
     done
   - git log --graph --abbrev-commit --date=relative
+  - scripts/chgrp-for-docker.sh -g $OPENWRT_GID -R .
+  - scripts/extract-encrypted-tar.sh -K $encrypted_7fd34a514aa3_key -iv $encrypted_7fd34a514aa3_iv secrets.tar.enc secret.key
+  - docker run --rm -it -u openwrt -w /home/openwrt -v $(pwd):/work yhnw/openwrt-sdk:17.01-ar71xx /work/scripts/make-index-and-sign.sh -s /work/secret.key /work
+  - rm secret.key
+  - git status
+  - git add -A
+  - git commit -a -m 'Add index and signature files'
 
 before_deploy:
   - git branch
   - git config --global "url.git@github.com:.pushinsteadof" "https://github.com/"
-  - mkdir -p $HOME/.ssh
-  - chmod 700 $HOME/.ssh
-  - openssl aes-256-cbc -K $encrypted_7fd34a514aa3_key -iv $encrypted_7fd34a514aa3_iv -in id_ecdsa.enc -out $HOME/.ssh/id_ecdsa -d
-  - chmod 600 $HOME/.ssh/id_ecdsa
+  - if [[ -e $HOME/.ssh ]] ; then mv $HOME/.ssh $HOME/.ssh.orig ; fi
+  - scripts/extract-encrypted-tar.sh -K $encrypted_7fd34a514aa3_key -iv $encrypted_7fd34a514aa3_iv secrets.tar.enc .ssh/
+  - mv .ssh $HOME/.ssh
+
 
 deploy:
   - provider: script
