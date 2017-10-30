@@ -16,12 +16,12 @@ $ opkg update
 
 ## Supporting platforms and packages
 
-- OpenWrt 15.05.1
- - [mips_24kc](https://github.com/hnw/openwrt-packages/tree/gh-pages/15.05.1/mips_24kc)
-- LEDE 17.01.x
- - [mips_24kc](https://github.com/hnw/openwrt-packages/tree/gh-pages/17.01/mips_24kc)
- - [mipsel_24kc](https://github.com/hnw/openwrt-packages/tree/gh-pages/17.01/mipsel_24kc)
- - [arm_cortex-a9](https://github.com/hnw/openwrt-packages/tree/gh-pages/17.01/arm_cortex-a9)
+* OpenWrt 15.05.1
+  * [mips_24kc](https://github.com/hnw/openwrt-packages/tree/gh-pages/15.05.1/mips_24kc)
+* LEDE 17.01.x
+  * [mips_24kc](https://github.com/hnw/openwrt-packages/tree/gh-pages/17.01/mips_24kc)
+  * [mipsel_24kc](https://github.com/hnw/openwrt-packages/tree/gh-pages/17.01/mipsel_24kc)
+  * [arm_cortex-a9](https://github.com/hnw/openwrt-packages/tree/gh-pages/17.01/arm_cortex-a9)
 
 ## Packages
 
