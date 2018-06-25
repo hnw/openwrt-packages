@@ -1,0 +1,126 @@
+Package: digitemp-usb
+Version: 3.7.1-1
+Depends: libc, libusb-compat
+Source: /work/digitemp
+License: GPL-2.0+
+Section: utils
+Maintainer: Yoshio HANAWA <for-openwrt@hnw.jp>
+Architecture: mipsel_24kc
+Installed-Size: 19574
+Filename: digitemp-usb_3.7.1-1_mipsel_24kc.ipk
+Size: 20439
+SHA256sum: dbc0b1dbabc12ff16cd6d1b811780a70a65b47f500af603929e84907dbf95821
+Description:  DigiTemp is a simple to use program for reading values from 1-wire devices.
+ Its main use is for reading temperature sensors, but it also reads counters,
+ and understands the 1-wire hubs with devices on different branches of the network.
+ This package is built with USB support.
+
+Package: digitemp
+Version: 3.7.1-1
+Depends: libc
+Source: /work/digitemp
+License: GPL-2.0+
+Section: utils
+Maintainer: Yoshio HANAWA <for-openwrt@hnw.jp>
+Architecture: mipsel_24kc
+Installed-Size: 40732
+Filename: digitemp_3.7.1-1_mipsel_24kc.ipk
+Size: 41711
+SHA256sum: 4f7591922215fc18e4108eb622d67dac9bf81bbcf7cb3664ad6db819535ddf12
+Description:  DigiTemp is a simple to use program for reading values from 1-wire devices.
+ Its main use is for reading temperature sensors, but it also reads counters,
+ and understands the 1-wire hubs with devices on different branches of the network.
+ This package is built without USB support.
+
+Package: lv
+Version: 4.51-1
+Depends: libc, libncursesw
+Source: /work/lv
+License: GPL-2.0
+LicenseFiles: GPL.txt
+Section: utils
+Maintainer: Yoshio HANAWA <for-openwrt@hnw.jp>
+Architecture: mipsel_24kc
+Installed-Size: 376090
+Filename: lv_4.51-1_mipsel_24kc.ipk
+Size: 376689
+SHA256sum: d646d361f0863e3658c8cd5d4a3e68d36f3f7e371a339b37e68fc4c13546f328
+Description:  Powerful multi-lingual file viewer/grep
+
+Package: mackerel-agent
+Version: 0.55.0-19
+Depends: libc, ca-certificates
+Source: /work/mackerel-agent
+License: Apache-2.0
+LicenseFiles: LICENSE
+Section: admin
+Maintainer: Yoshio HANAWA <for-openwrt@hnw.jp>
+Architecture: mipsel_24kc
+Installed-Size: 1653980
+Filename: mackerel-agent_0.55.0-19_mipsel_24kc.ipk
+Size: 1655144
+SHA256sum: 597ac40758c56e515b8deb5a1ba6875394c1cf1ae6ba1db3d6c7d574b214c58b
+Description:  mackerel.io agent
+ Server monitoring agent for https://mackerel.io (Monitoring SaaS)
+
+Package: mackerel-plugin-iw
+Version: 0.1.1-3
+Depends: libc, mackerel-agent
+Source: /work/mackerel-plugin-iw
+License: Apache-2.0
+LicenseFiles: LICENSE
+Section: admin
+Maintainer: Yoshio HANAWA <for-openwrt@hnw.jp>
+Architecture: mipsel_24kc
+Installed-Size: 846424
+Filename: mackerel-plugin-iw_0.1.1-3_mipsel_24kc.ipk
+Size: 847298
+SHA256sum: 0d22b25b363cd3e0e43531968aabcbb319ceb32932784156c5017d185187f990
+Description:  iw custom metrics plugin for mackerel-agent
+
+Package: miruo
+Version: 0.9.6b-1
+Depends: libc, libpcap
+Source: /work/miruo
+License: GPL-3.0
+LicenseFiles: COPYING
+Section: utils
+Maintainer: Yoshio HANAWA <for-openwrt@hnw.jp>
+Architecture: mipsel_24kc
+Installed-Size: 16528
+Filename: miruo_0.9.6b-1_mipsel_24kc.ipk
+Size: 17372
+SHA256sum: 23e696e489ba0841cf3ad05a0f3ebb81ab6cde00c357879f36cb1ff2801d8889
+Description:  Network monitor/analyzer which prints packets on terminal in neat style.
+ Packet data can also be read from a file saved by tcpdump(1).
+
+Package: netstat-nat
+Version: 1.4.10-1
+Depends: libc
+Source: /work/netstat-nat
+Section: net
+Architecture: mipsel_24kc
+Installed-Size: 6370
+Filename: netstat-nat_1.4.10-1_mipsel_24kc.ipk
+Size: 7222
+SHA256sum: c8b0ff11d82870282b6bbfd3d0666c2e80d7a1169f3cdc05fdbc445d185edf5e
+Description:  Netstat-nat is a small program written in C.
+ It displays NAT connections, managed by netfilter/iptables which comes
+ with the > 2.4.x linux kernels.
+ The program reads its information from '/proc/net/ip_conntrack', which
+ is the temporary conntrack-storage of netfilter.
+
+Package: nkf
+Version: 2.1.4-1
+Depends: libc
+Source: /work/nkf
+License: MIT
+Section: utils
+Maintainer: Yoshio HANAWA <for-openwrt@hnw.jp>
+Architecture: mipsel_24kc
+Installed-Size: 122847
+Filename: nkf_2.1.4-1_mipsel_24kc.ipk
+Size: 123034
+SHA256sum: 21f1d1b4fa5d9aa72cff4f8d67c5b27f80dff26828cb243446825a3f19dbe72d
+Description:  Network Kanji code conversion Filter (NKF)
+
